@@ -36,9 +36,39 @@ class Home extends StatelessWidget {
                   mainAxisSize: MainAxisSize.min,
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
-                    CircleAvatar(
-                      radius: 80.0,
-                      backgroundImage: AssetImage('images/flower.jpg'),
+                    Container(
+                      padding: EdgeInsets.all(5), 
+                      decoration: BoxDecoration(
+                        gradient: LinearGradient(
+                          colors: [Colors.purple, Colors.blue, Colors.green],
+                          begin: Alignment.topLeft,
+                          end: Alignment.bottomRight,
+                        ),
+                        shape: BoxShape.circle,
+                      ),
+                      child: Stack(
+                        children: [
+                          CircleAvatar(
+                            radius: 80.0,
+                            backgroundImage: AssetImage('images/flower.jpg'),
+                          ),
+                          Positioned(
+                            bottom: 0,
+                            right: 0,
+                            child: Container(
+                              decoration: BoxDecoration(
+                                color: Colors.white,
+                                shape: BoxShape.circle,
+                              ),
+                              child: Icon(
+                                Icons.camera_alt, 
+                                color: Colors.blueAccent,
+                                size: 30,
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
                     ),
                     SizedBox(height: 20),
                     Text(

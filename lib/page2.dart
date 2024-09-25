@@ -124,7 +124,7 @@ class Page2 extends StatelessWidget {
                       Padding(
                         padding: const EdgeInsets.all(16.0),
                         child: Text(
-                          "Saya menganyam pendidikan di SMK Wikrama Bogor dan mengambil bidang keahlian IT (Information and Technology)",
+                          "Saya menganyam pendidikan di SMK Wikrama Bogor dan mengambil bidang keahlian IT (Information and Technology). pada januari 2024 saya Praktek Kerja Lapang(PKL) PT Desacode, Rancamaya",
                           style: TextStyle(fontSize: 16),
                         ),
                       ),
