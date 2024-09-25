@@ -173,10 +173,6 @@ class Page2 extends StatelessWidget {
                               "CSS",
                               style: TextStyle(fontSize: 16),
                             ),
-                            Text(
-                              "JavaScript",
-                              style: TextStyle(fontSize: 16),
-                            ),
                              Text(
                               "Laravel",
                               style: TextStyle(fontSize: 16),
