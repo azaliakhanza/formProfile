@@ -1,12 +1,29 @@
 import 'package:flutter/material.dart';
 
 class Page2 extends StatelessWidget {
-  const Page2({Key? key}) : super(key: key);
+  final String name;
+  final String school;
+  final String about;
+  final String history;
+  final List<String> skills;
+
+  const Page2({
+    Key? key,
+    required this.name,
+    required this.school,
+    required this.about,
+    required this.history,
+    required this.skills,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        title: Text(
+          'Detail Profil',
+          style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
+        ),
         backgroundColor: Colors.transparent,
         elevation: 0,
         leading: IconButton(
@@ -21,7 +38,7 @@ class Page2 extends StatelessWidget {
         height: MediaQuery.of(context).size.height,
         decoration: BoxDecoration(
           image: DecorationImage(
-            image: AssetImage("images/bg.png"),
+            image: AssetImage("assets/images/bg.png"),
             fit: BoxFit.cover,
           ),
         ),
@@ -33,11 +50,11 @@ class Page2 extends StatelessWidget {
               children: [
                 CircleAvatar(
                   radius: 80.0,
-                  backgroundImage: AssetImage('images/flower.jpg'),
+                  backgroundImage: AssetImage('assets/images/flower.jpg'),
                 ),
                 SizedBox(height: 20),
                 Text(
-                  "Azalia Khanza Hafifah",
+                  name,
                   style: TextStyle(
                     fontSize: 22,
                     fontWeight: FontWeight.bold,
@@ -46,7 +63,7 @@ class Page2 extends StatelessWidget {
                 ),
                 SizedBox(height: 10),
                 Text(
-                  "Student at SMK Wikrama Bogor",
+                  "Student at $school",
                   textAlign: TextAlign.center,
                   style: TextStyle(
                     fontSize: 18,
@@ -85,7 +102,7 @@ class Page2 extends StatelessWidget {
                       Padding(
                         padding: const EdgeInsets.all(16.0),
                         child: Text(
-                          "Nama saya Azalia Khanza Hafifah, saya lahir di Bogor pada tahun 2007",
+                          about.isNotEmpty ? about : "Belum ada informasi tentang Anda.",
                           style: TextStyle(fontSize: 16),
                         ),
                       ),
@@ -124,7 +141,7 @@ class Page2 extends StatelessWidget {
                       Padding(
                         padding: const EdgeInsets.all(16.0),
                         child: Text(
-                          "Saya menganyam pendidikan di SMK Wikrama Bogor dan mengambil bidang keahlian IT (Information and Technology). pada januari 2024 saya Praktek Kerja Lapang(PKL) PT Desacode, Rancamaya",
+                          history.isNotEmpty ? history : "Belum ada riwayat pendidikan.",
                           style: TextStyle(fontSize: 16),
                         ),
                       ),
@@ -153,7 +170,7 @@ class Page2 extends StatelessWidget {
                           ),
                         ),
                         child: Text(
-                          "Skill",
+                          "Skills",
                           style: TextStyle(
                             fontSize: 18,
                             fontWeight: FontWeight.bold,
@@ -162,35 +179,20 @@ class Page2 extends StatelessWidget {
                       ),
                       Padding(
                         padding: const EdgeInsets.all(16.0),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              "HTML",
-                              style: TextStyle(fontSize: 16),
-                            ),
-                            Text(
-                              "CSS",
-                              style: TextStyle(fontSize: 16),
-                            ),
-                             Text(
-                              "Laravel",
-                              style: TextStyle(fontSize: 16),
-                            ),
-                             Text(
-                              "React",
-                              style: TextStyle(fontSize: 16),
-                            ),
-                             Text(
-                              "Figma",
-                              style: TextStyle(fontSize: 16),
-                            ),
-                             Text(
-                              "QA",
-                              style: TextStyle(fontSize: 16),
-                            ),
-                          ],
-                        ),
+                        child: skills.isNotEmpty
+                            ? Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: skills
+                                    .map((skill) => Text(
+                                          skill,
+                                          style: TextStyle(fontSize: 16),
+                                        ))
+                                    .toList(),
+                              )
+                            : Text(
+                                "Belum ada keterampilan yang ditambahkan.",
+                                style: TextStyle(fontSize: 16),
+                              ),
                       ),
                     ],
                   ),
